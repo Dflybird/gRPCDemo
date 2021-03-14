@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "firstproto";
+option java_outer_classname = "FirstGRPCProto";
+option objc_class_prefix = "RTG";
+
+package firstproto;
+
+service FirstGRPC {
+  rpc GetLocation(AgentID) returns (Location) {}
+}
+
+message Location {
+  string name = 1;
+  Point pos = 2;
+}
+
+message Point {
+  float x = 1;
+  float y = 2;
+}
+
+message AgentID {
+  string name = 1;
+}
